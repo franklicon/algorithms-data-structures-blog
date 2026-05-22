@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans;
+    font-feature-settings: 'ss01', 'ss02', 'cv01';
+  }
+
+  html.dark body {
+    @apply bg-ink text-paper;
+  }
+
+  /* Subtle paper-grain texture in light mode */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+  }
+
+  html.dark body::before {
+    opacity: 0.04;
+  }
+
+  ::selection {
+    @apply bg-ember/20 text-ember;
+  }
+
+  html.dark ::selection {
+    @apply bg-ember/30 text-paper;
+  }
+}
+
+@layer components {
+  .prose-editorial {
+    @apply max-w-[68ch] text-[17px] leading-[1.75] text-ink/85;
+  }
+
+  html.dark .prose-editorial {
+    @apply text-paper/80;
+  }
+
+  .prose-editorial p {
+    @apply mb-6;
+  }
+
+  .prose-editorial h2 {
+    @apply font-display text-3xl font-medium tracking-tightest mt-14 mb-5 text-ink;
+  }
+
+  html.dark .prose-editorial h2 {
+    @apply text-paper;
+  }
+
+  .prose-editorial h3 {
+    @apply font-display text-xl font-medium mt-10 mb-3 text-ink;
+  }
+
+  html.dark .prose-editorial h3 {
+    @apply text-paper;
+  }
+
+  .prose-editorial a {
+    @apply text-ember underline decoration-ember/30 underline-offset-4 hover:decoration-ember transition-colors;
+  }
+
+  .prose-editorial code:not(pre code) {
+    @apply font-mono text-[0.9em] px-1.5 py-0.5 rounded bg-rule/60 text-graphite;
+  }
+
+  html.dark .prose-editorial code:not(pre code) {
+    @apply bg-graphite text-paper/90;
+  }
+
+  .prose-editorial strong {
+    @apply font-medium text-ink;
+  }
+
+  html.dark .prose-editorial strong {
+    @apply text-paper;
+  }
+
+  .hairline {
+    @apply border-t border-rule;
+  }
+
+  html.dark .hairline {
+    @apply border-graphite;
+  }
+}

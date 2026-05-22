@@ -1,0 +1,35 @@
+{
+  "name": "algorithms-data-structures-blog",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A blog about algorithms and data structures, with C# implementations and interactive visualizations.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "fuse.js": "^7.0.0",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "react-syntax-highlighter": "^15.6.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.2.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}
