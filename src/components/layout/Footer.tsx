@@ -22,7 +22,7 @@ export default function Footer() {
             Source
           </a>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/40 dark:text-paper/40">
-            © {new Date().getFullYear()}
+            © {new Date().getFullYear()} · Francisco Licón
           </p>
         </div>
       </div>
