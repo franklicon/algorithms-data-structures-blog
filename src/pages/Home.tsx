@@ -21,7 +21,7 @@ export default function Home() {
     : posts;
 
   return (
-    <div className="max-w-6xl mx-auto px-6 lg:px-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
       {/* Hero */}
       <section className="pt-20 pb-16 lg:pt-28 lg:pb-24 relative">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
@@ -95,14 +95,14 @@ export default function Home() {
                   to={`/posts/${post.slug}`}
                   className="group block py-8 lg:py-10 grid grid-cols-12 gap-6 items-baseline hover:bg-rule/20 dark:hover:bg-graphite/20 -mx-4 px-4 rounded transition-colors"
                 >
-                  <div className="col-span-1 font-mono text-xs text-ink/40 dark:text-paper/40 tabular-nums">
+                  <div className="col-span-2 sm:col-span-1 font-mono text-xs text-ink/40 dark:text-paper/40 tabular-nums">
                     {String(idx + 1).padStart(2, '0')}
                   </div>
-                  <div className="col-span-12 sm:col-span-7">
-                    <h3 className="font-display text-3xl lg:text-4xl font-medium tracking-tightest text-ink dark:text-paper group-hover:text-ember transition-colors">
+                  <div className="col-span-10 sm:col-span-7">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tightest text-ink dark:text-paper group-hover:text-ember transition-colors break-words">
                       {post.title}
                     </h3>
-                    <p className="font-display italic text-ink/65 dark:text-paper/65 text-lg mt-2">
+                    <p className="font-display italic text-ink/65 dark:text-paper/65 text-base sm:text-lg mt-2">
                       {post.subtitle}
                     </p>
                   </div>

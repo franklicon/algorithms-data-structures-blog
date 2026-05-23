@@ -17,7 +17,7 @@ export default function PostPage() {
   });
 
   return (
-    <div className="max-w-6xl mx-auto px-6 lg:px-10">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
       {/* Back link */}
       <div className="pt-10 pb-4">
         <Link
@@ -31,7 +31,7 @@ export default function PostPage() {
 
       {/* Header */}
       <header className="py-10 lg:py-14 border-b border-rule dark:border-graphite/60 mb-12 lg:mb-16">
-        <div className="flex items-center gap-3 mb-6">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-6">
           <Link
             to={`/category/${post.category}`}
             className="font-mono text-[11px] uppercase tracking-[0.25em] text-ember hover:underline"
@@ -48,10 +48,10 @@ export default function PostPage() {
           </span>
         </div>
 
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tightest text-ink dark:text-paper font-medium">
+        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tightest text-ink dark:text-paper font-medium break-words">
           {post.title}
         </h1>
-        <p className="font-display italic text-xl lg:text-2xl text-ink/70 dark:text-paper/70 mt-6 max-w-2xl">
+        <p className="font-display italic text-lg sm:text-xl lg:text-2xl text-ink/70 dark:text-paper/70 mt-6 max-w-2xl">
           {post.subtitle}
         </p>
 

@@ -19,8 +19,8 @@ export default function ComplexityTable({ rows, caption }: ComplexityTableProps)
           {caption}
         </figcaption>
       )}
-      <div className="border-y border-ink/80 dark:border-paper/80">
-        <table className="w-full text-left">
+      <div className="border-y border-ink/80 dark:border-paper/80 overflow-x-auto">
+        <table className="w-full min-w-[520px] text-left">
           <thead>
             <tr className="border-b border-rule dark:border-graphite/60">
               <th className="py-2.5 pr-4 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60 dark:text-paper/60 font-normal">

@@ -3,7 +3,7 @@ import { Github } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="relative z-10 mt-24 border-t border-rule dark:border-graphite/60">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div>
           <p className="font-display text-lg text-ink dark:text-paper">The Notebook</p>
           <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 dark:text-paper/50 mt-1">

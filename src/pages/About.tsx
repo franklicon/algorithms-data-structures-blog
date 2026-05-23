@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 export default function About() {
   return (
-    <div className="max-w-3xl mx-auto px-6 lg:px-10 py-16 lg:py-24">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
       <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-ember mb-6">
         Colophon
       </p>
-      <h1 className="font-display text-5xl lg:text-6xl tracking-tightest text-ink dark:text-paper font-medium mb-10">
+      <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tightest text-ink dark:text-paper font-medium mb-10 break-words">
         About this notebook.
       </h1>
 
