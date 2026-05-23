@@ -39,18 +39,6 @@ export default function Navbar() {
           >
             Algorithms
           </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `hidden sm:inline font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
-                isActive
-                  ? 'text-ember'
-                  : 'text-ink/60 hover:text-ink dark:text-paper/60 dark:hover:text-paper'
-              }`
-            }
-          >
-            Colophon
-          </NavLink>
           <ThemeToggle />
         </nav>
       </div>

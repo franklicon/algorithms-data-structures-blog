@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Github } from 'lucide-react';
 
 export default function Footer() {
@@ -11,7 +12,13 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <Link
+            to="/about"
+            className="font-mono text-xs uppercase tracking-[0.18em] text-ink/60 hover:text-ember dark:text-paper/60 dark:hover:text-ember transition-colors"
+          >
+            Colophon
+          </Link>
           <a
             href="https://github.com/franklicon/algorithms-data-structures"
             target="_blank"
