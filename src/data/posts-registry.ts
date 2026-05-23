@@ -3,6 +3,7 @@ import LinkedListPost from '../posts/data-structures/linked-list';
 import DoublyLinkedListPost from '../posts/data-structures/doubly-linked-list';
 import StackPost from '../posts/data-structures/stack';
 import QueuePost from '../posts/data-structures/queue';
+import SortingPost from '../posts/algorithms/sorting';
 
 export type Category = 'data-structures' | 'algorithms';
 
@@ -91,6 +92,20 @@ export const posts: PostMeta[] = [
       space: 'O(n)',
     },
     component: QueuePost,
+  },
+  {
+    slug: 'sorting',
+    title: 'Sorting Algorithms',
+    subtitle: 'Four comparison sorts in C# — when to reach for each, and what each one really costs.',
+    category: 'algorithms',
+    tags: ['sorting', 'comparison-sort', 'fundamentals'],
+    date: '2026-05-22',
+    readingTime: 15,
+    complexity: {
+      time: 'O(n log n) – O(n²)',
+      space: 'O(1) – O(n)',
+    },
+    component: SortingPost,
   },
 ];
 

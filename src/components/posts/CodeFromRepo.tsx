@@ -16,6 +16,7 @@ export default function CodeFromRepo({
   branch,
   lines,
   extractClass,
+  extractMethod,
   caption,
   language = 'csharp',
   filename,
@@ -27,7 +28,7 @@ export default function CodeFromRepo({
     let cancelled = false;
     setCode(null);
     setError(null);
-    fetchCode({ path, branch, lines, extractClass })
+    fetchCode({ path, branch, lines, extractClass, extractMethod })
       .then((text) => {
         if (!cancelled) setCode(text);
       })
@@ -37,7 +38,7 @@ export default function CodeFromRepo({
     return () => {
       cancelled = true;
     };
-  }, [path, branch, lines, extractClass]);
+  }, [path, branch, lines, extractClass, extractMethod]);
 
   const githubUrl = `https://github.com/franklicon/algorithms-data-structures/blob/${
     branch ?? 'main'

@@ -19,6 +19,12 @@ export interface FetchCodeOptions {
    * unrelated edits to the surrounding file.
    */
   extractClass?: string;
+  /**
+   * Extract a single method declaration by name, including its body.
+   * Matches on a signature shape (name immediately followed by `<` or `(`)
+   * so partial-name collisions (e.g. `MergeSort` vs `MergeSortAux`) are avoided.
+   */
+  extractMethod?: string;
 }
 
 export function buildRawUrl({ path, branch = DEFAULT_BRANCH }: FetchCodeOptions): string {
@@ -34,6 +40,9 @@ export async function fetchCode(options: FetchCodeOptions): Promise<string> {
   let text = await res.text();
   if (options.extractClass) {
     text = extractClassByName(text, options.extractClass);
+  }
+  if (options.extractMethod) {
+    text = extractMethodByName(text, options.extractMethod);
   }
   if (options.lines) {
     const [start, end] = options.lines;
@@ -79,6 +88,45 @@ function extractClassByName(source: string, className: string): string {
   }
   if (endIdx === -1) {
     throw new Error(`Class "${className}" body not balanced`);
+  }
+
+  const sliced = lines.slice(startIdx, endIdx + 1);
+  return dedent(sliced);
+}
+
+/**
+ * Pulls a method declaration (and only its declaration + body) out of a C# source file.
+ * Identifies a method by its name immediately followed by `<` or `(`, which distinguishes
+ * the public entry point (`MergeSort<T>(`) from any partially-named helper (`MergeSortAux<T>(`).
+ */
+function extractMethodByName(source: string, methodName: string): string {
+  const lines = source.split('\n');
+  const sigRegex = new RegExp(`\\b${methodName}\\s*(?:<[^>]*>)?\\s*\\(`);
+  const startIdx = lines.findIndex((line) => sigRegex.test(line));
+  if (startIdx === -1) {
+    throw new Error(`Method "${methodName}" not found in source`);
+  }
+
+  let depth = 0;
+  let opened = false;
+  let endIdx = -1;
+  for (let i = startIdx; i < lines.length; i++) {
+    for (const ch of lines[i]) {
+      if (ch === '{') {
+        depth++;
+        opened = true;
+      } else if (ch === '}') {
+        depth--;
+        if (opened && depth === 0) {
+          endIdx = i;
+          break;
+        }
+      }
+    }
+    if (endIdx !== -1) break;
+  }
+  if (endIdx === -1) {
+    throw new Error(`Method "${methodName}" body not balanced`);
   }
 
   const sliced = lines.slice(startIdx, endIdx + 1);
