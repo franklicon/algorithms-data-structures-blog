@@ -96,12 +96,17 @@ function extractClassByName(source: string, className: string): string {
 
 /**
  * Pulls a method declaration (and only its declaration + body) out of a C# source file.
- * Identifies a method by its name immediately followed by `<` or `(`, which distinguishes
- * the public entry point (`MergeSort<T>(`) from any partially-named helper (`MergeSortAux<T>(`).
+ * Identifies a method by its signature line — a line that contains an access/storage
+ * modifier (public/private/protected/internal/static) followed by the method name and
+ * an opening parenthesis. The modifier requirement rules out method *calls* (e.g.
+ * `MergeSortAux(array, 0, n - 1);` inside another method's body), which otherwise
+ * also satisfy the name-then-paren shape.
  */
 function extractMethodByName(source: string, methodName: string): string {
   const lines = source.split('\n');
-  const sigRegex = new RegExp(`\\b${methodName}\\s*(?:<[^>]*>)?\\s*\\(`);
+  const sigRegex = new RegExp(
+    `\\b(?:public|private|protected|internal|static)\\b[^()]*\\b${methodName}\\s*(?:<[^>]*>)?\\s*\\(`
+  );
   const startIdx = lines.findIndex((line) => sigRegex.test(line));
   if (startIdx === -1) {
     throw new Error(`Method "${methodName}" not found in source`);
