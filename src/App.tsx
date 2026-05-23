@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import PostPage from './pages/PostPage';
 import CategoryPage from './pages/CategoryPage';
@@ -10,6 +11,7 @@ import { ThemeProvider } from './hooks/useTheme';
 export default function App() {
   return (
     <ThemeProvider>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
