@@ -4,6 +4,7 @@ import DoublyLinkedListPost from '../posts/data-structures/doubly-linked-list';
 import StackPost from '../posts/data-structures/stack';
 import QueuePost from '../posts/data-structures/queue';
 import SortingPost from '../posts/algorithms/sorting';
+import SearchingPost from '../posts/algorithms/searching';
 
 export type Category = 'data-structures' | 'algorithms';
 
@@ -106,6 +107,20 @@ export const posts: PostMeta[] = [
       space: 'O(1) – O(n)',
     },
     component: SortingPost,
+  },
+  {
+    slug: 'searching',
+    title: 'Binary Search',
+    subtitle: 'Halving the search space — O(log n) lookup on sorted data, the building block behind every fast index.',
+    category: 'algorithms',
+    tags: ['searching', 'binary-search', 'fundamentals'],
+    date: '2026-05-24',
+    readingTime: 10,
+    complexity: {
+      search: 'O(log n)',
+      space: 'O(1)',
+    },
+    component: SearchingPost,
   },
 ];
 
