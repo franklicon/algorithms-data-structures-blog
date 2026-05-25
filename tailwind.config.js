@@ -13,13 +13,19 @@ export default {
         mono: ['"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        // Warm, editorial palette
-        paper: '#FAF7F2',
-        ink: '#1A1A1F',
-        graphite: '#2B2B33',
-        ember: '#C2410C', // warm accent — used sparingly
-        sage: '#5F7A6A',
-        rule: '#E5DFD3',
+        // .NET-flavored purple system. Token semantics: paper = light surface
+        // (background in light / text in dark), ink = dark surface (text in
+        // light / background in dark). Both modes are live via the navbar toggle.
+        paper: '#FAFAFA',          // light surface — near-white
+        ink: '#0E0B16',            // dark surface — near-black with violet undertone
+        graphite: '#1B1530',       // elevated dark surface — cards, code-block bg
+        ember: '#7C3AED',          // primary accent — violet-600, used for links + ruling
+        aurora: '#A78BFA',         // lighter accent — violet-400, hero highlights + hover
+        gold: '#F59E0B',           // warm complement — sort/search active cells
+        signal: '#F59E0B',         // alias — keeps existing references working
+        magenta: '#7C3AED',        // alias — keeps existing references working
+        sage: '#7C3AED',           // alias to ember (sage was unused on these surfaces)
+        rule: '#E7E2DC',           // light-mode hairlines
       },
       letterSpacing: {
         tightest: '-0.04em',

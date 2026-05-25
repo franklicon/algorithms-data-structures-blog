@@ -139,15 +139,25 @@ export default function LinkedListVisualizer() {
           font-family: 'JetBrains Mono', ui-monospace, monospace;
           font-size: 12px;
           letter-spacing: 0.02em;
-          border: 1px solid currentColor;
+          border: 1px solid rgb(14 11 22 / 0.18);
           border-radius: 4px;
-          color: rgb(26 26 31 / 0.7);
+          color: rgb(14 11 22 / 0.72);
+          background: transparent;
           transition: all 150ms;
         }
-        html.dark .btn-viz { color: rgb(250 247 242 / 0.7); }
+        html.dark .btn-viz {
+          border-color: rgb(250 250 250 / 0.18);
+          color: rgb(250 250 250 / 0.78);
+        }
         .btn-viz:hover:not(:disabled) {
-          color: #C2410C;
-          background: rgba(194, 65, 12, 0.06);
+          color: #7C3AED;
+          border-color: #7C3AED;
+          background: rgba(124, 58, 237, 0.08);
+        }
+        html.dark .btn-viz:hover:not(:disabled) {
+          color: #A78BFA;
+          border-color: #A78BFA;
+          background: rgba(167, 139, 250, 0.10);
         }
         .btn-viz:disabled {
           opacity: 0.35;

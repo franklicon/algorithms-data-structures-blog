@@ -169,7 +169,7 @@ export default function SearchingVisualizer() {
                   <div
                     className={`w-9 h-10 rounded flex items-center justify-center font-mono text-sm transition-all duration-200 border ${
                       isMid
-                        ? 'bg-ember border-ember text-paper font-bold'
+                        ? 'bg-signal border-signal text-ink font-bold'
                         : inRange
                         ? 'border-ink/70 dark:border-paper/70 text-ink dark:text-paper bg-paper dark:bg-graphite/30'
                         : 'border-rule dark:border-graphite/40 text-ink/30 dark:text-paper/25 bg-transparent'
@@ -209,15 +209,25 @@ export default function SearchingVisualizer() {
           font-family: 'JetBrains Mono', ui-monospace, monospace;
           font-size: 12px;
           letter-spacing: 0.02em;
-          border: 1px solid currentColor;
+          border: 1px solid rgb(14 11 22 / 0.18);
           border-radius: 4px;
-          color: rgb(26 26 31 / 0.7);
+          color: rgb(14 11 22 / 0.72);
+          background: transparent;
           transition: all 150ms;
         }
-        html.dark .btn-viz { color: rgb(250 247 242 / 0.7); }
+        html.dark .btn-viz {
+          border-color: rgb(250 250 250 / 0.18);
+          color: rgb(250 250 250 / 0.78);
+        }
         .btn-viz:hover:not(:disabled) {
-          color: #C2410C;
-          background: rgba(194, 65, 12, 0.06);
+          color: #7C3AED;
+          border-color: #7C3AED;
+          background: rgba(124, 58, 237, 0.08);
+        }
+        html.dark .btn-viz:hover:not(:disabled) {
+          color: #A78BFA;
+          border-color: #A78BFA;
+          background: rgba(167, 139, 250, 0.10);
         }
         .btn-viz:disabled {
           opacity: 0.35;

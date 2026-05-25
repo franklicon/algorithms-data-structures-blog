@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   html.dark {
@@ -26,7 +26,7 @@
     @apply bg-ink text-paper;
   }
 
-  /* Subtle paper-grain texture in light mode */
+  /* Faint film-grain texture over the surface */
   body::before {
     content: '';
     position: fixed;
@@ -38,11 +38,11 @@
   }
 
   html.dark body::before {
-    opacity: 0.04;
+    opacity: 0.05;
   }
 
   ::selection {
-    @apply bg-ember/20 text-ember;
+    @apply bg-ember/30 text-paper;
   }
 
   html.dark ::selection {
@@ -56,7 +56,7 @@
   }
 
   html.dark .prose-editorial {
-    @apply text-paper/80;
+    @apply text-paper/85;
   }
 
   .prose-editorial p {
@@ -80,7 +80,7 @@
   }
 
   .prose-editorial a {
-    @apply text-ember underline decoration-ember/30 underline-offset-4 hover:decoration-ember transition-colors;
+    @apply text-ember underline decoration-ember/40 underline-offset-4 hover:decoration-ember transition-colors;
   }
 
   .prose-editorial code:not(pre code) {
@@ -88,7 +88,7 @@
   }
 
   html.dark .prose-editorial code:not(pre code) {
-    @apply bg-graphite text-paper/90;
+    @apply bg-graphite text-signal border border-graphite;
   }
 
   .prose-editorial strong {
