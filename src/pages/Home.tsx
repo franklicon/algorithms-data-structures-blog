@@ -40,7 +40,7 @@ export default function Home() {
             </h1>
           </div>
           <div className="lg:col-span-4 lg:pb-4">
-            <p className="font-display text-lg leading-relaxed text-ink/70 dark:text-paper/70 italic">
+            <p className="font-display italic text-lg sm:text-xl leading-relaxed text-ink/65 dark:text-paper/65">
               Implementations from scratch, complexity examined honestly, and
               interactive visualizations to make the moving parts visible.
             </p>
@@ -84,7 +84,7 @@ export default function Home() {
         </h2>
 
         {results.length === 0 ? (
-          <p className="font-display italic text-ink/60 dark:text-paper/60 text-lg">
+          <p className="font-display italic text-lg sm:text-xl text-ink/65 dark:text-paper/65">
             No entries match &ldquo;{query}&rdquo;.
           </p>
         ) : (

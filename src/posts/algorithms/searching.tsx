@@ -8,7 +8,7 @@ const SEARCH_PATH = 'src/Algorithms/Searching/SearchAlgorithms.cs';
 export default function SearchingPost() {
   return (
     <article className="prose-editorial">
-      <p className="font-display text-2xl leading-snug text-ink/90 dark:text-paper/90 mb-10 italic">
+      <p className="font-display italic text-xl sm:text-2xl leading-snug text-ink/85 dark:text-paper/85 mb-10">
         Binary search is the algorithm that turns a sorted million-element
         array into a twenty-comparison lookup. Its correctness is a one-line
         invariant; its bug history is a cautionary tale; and its underlying

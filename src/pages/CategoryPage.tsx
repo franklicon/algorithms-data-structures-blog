@@ -25,7 +25,7 @@ export default function CategoryPage() {
       <div className="hairline mb-2" />
 
       {items.length === 0 ? (
-        <p className="font-display italic text-ink/60 dark:text-paper/60 text-lg py-12">
+        <p className="font-display italic text-lg sm:text-xl text-ink/65 dark:text-paper/65 py-12">
           No entries yet — coming soon.
         </p>
       ) : (

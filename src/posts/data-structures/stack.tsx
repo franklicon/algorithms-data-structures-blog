@@ -6,7 +6,7 @@ import StackVisualizer from '../../components/visualizers/StackVisualizer';
 export default function StackPost() {
   return (
     <article className="prose-editorial">
-      <p className="font-display text-2xl leading-snug text-ink/90 dark:text-paper/90 mb-10 italic">
+      <p className="font-display italic text-xl sm:text-2xl leading-snug text-ink/85 dark:text-paper/85 mb-10">
         A stack is the data structure of last-in, first-out discipline — every
         operation touches the same end, every order of access is reversed. A
         linked list with a single <code>_top</code> pointer is the most direct

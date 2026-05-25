@@ -6,7 +6,7 @@ import QueueVisualizer from '../../components/visualizers/QueueVisualizer';
 export default function QueuePost() {
   return (
     <article className="prose-editorial">
-      <p className="font-display text-2xl leading-snug text-ink/90 dark:text-paper/90 mb-10 italic">
+      <p className="font-display italic text-xl sm:text-2xl leading-snug text-ink/85 dark:text-paper/85 mb-10">
         A queue is the data structure of first-in, first-out discipline —
         items enter at one end and leave at the other, in the same order they
         arrived. A singly linked list with both a <code>_head</code> and a{' '}

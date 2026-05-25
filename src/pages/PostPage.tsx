@@ -51,7 +51,7 @@ export default function PostPage() {
         <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tightest text-ink dark:text-paper font-medium break-words">
           {post.title}
         </h1>
-        <p className="font-display italic text-lg sm:text-xl lg:text-2xl text-ink/70 dark:text-paper/70 mt-6 max-w-2xl">
+        <p className="font-display italic text-lg sm:text-xl text-ink/65 dark:text-paper/65 mt-6 max-w-2xl">
           {post.subtitle}
         </p>
 

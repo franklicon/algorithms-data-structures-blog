@@ -6,7 +6,7 @@ import LinkedListVisualizer from '../../components/visualizers/LinkedListVisuali
 export default function LinkedListPost() {
   return (
     <article className="prose-editorial">
-      <p className="font-display text-2xl leading-snug text-ink/90 dark:text-paper/90 mb-10 italic">
+      <p className="font-display italic text-xl sm:text-2xl leading-snug text-ink/85 dark:text-paper/85 mb-10">
         A linked list is the data structure to reach for when you need
         constant-time insertion at the boundaries of a sequence and stable
         references that survive structural changes — in exchange for random

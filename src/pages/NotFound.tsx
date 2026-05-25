@@ -6,10 +6,10 @@ export default function NotFound() {
       <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-ember mb-6">
         Error · 404
       </p>
-      <h1 className="font-display text-6xl lg:text-7xl tracking-tightest text-ink dark:text-paper font-medium mb-6">
+      <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] tracking-tightest text-ink dark:text-paper font-medium mb-6">
         Page not found.
       </h1>
-      <p className="font-display italic text-xl text-ink/65 dark:text-paper/65 mb-10">
+      <p className="font-display italic text-lg sm:text-xl text-ink/65 dark:text-paper/65 mb-10">
         The pointer you followed leads to <code>null</code>.
       </p>
       <Link

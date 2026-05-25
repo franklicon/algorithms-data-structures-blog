@@ -6,7 +6,7 @@ import DoublyLinkedListVisualizer from '../../components/visualizers/DoublyLinke
 export default function DoublyLinkedListPost() {
   return (
     <article className="prose-editorial">
-      <p className="font-display text-2xl leading-snug text-ink/90 dark:text-paper/90 mb-10 italic">
+      <p className="font-display italic text-xl sm:text-2xl leading-snug text-ink/85 dark:text-paper/85 mb-10">
         A doubly linked list is the upgrade you reach for when the O(n)
         <code> RemoveLast</code> of a singly linked list becomes the bottleneck —
         paid for with an extra pointer per node and a small amount of additional
