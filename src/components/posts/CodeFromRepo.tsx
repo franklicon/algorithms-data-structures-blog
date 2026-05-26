@@ -46,15 +46,15 @@ export default function CodeFromRepo({
 
   if (error) {
     return (
-      <div className="my-8 p-4 border border-rule dark:border-graphite/60 rounded-md bg-rule/30 dark:bg-graphite/30">
-        <p className="font-mono text-xs text-ember">
+      <div className="my-8 p-4 border border-rule dark:border-graphite/60 rounded-md bg-rule/30 dark:bg-graphite/30 brutal:rounded-none brutal:border-2 brutal:border-brutal-ink brutal:bg-brutal-red/20 brutal:shadow-brutal">
+        <p className="font-mono text-xs text-ember brutal:text-brutal-ink brutal:font-bold">
           Couldn’t load <span className="underline">{path}</span> — {error}
         </p>
         <a
           href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-xs text-ember underline mt-2 inline-block"
+          className="font-mono text-xs text-ember underline mt-2 inline-block brutal:text-black brutal:font-bold brutal:bg-brutal-yellow brutal:no-underline brutal:px-2 brutal:py-0.5 brutal:border-2 brutal:border-brutal-ink"
         >
           View on GitHub →
         </a>
@@ -64,8 +64,8 @@ export default function CodeFromRepo({
 
   if (code === null) {
     return (
-      <div className="my-8 p-4 border border-rule dark:border-graphite/60 rounded-md animate-pulse">
-        <p className="font-mono text-xs text-ink/40 dark:text-paper/40">
+      <div className="my-8 p-4 border border-rule dark:border-graphite/60 rounded-md animate-pulse brutal:rounded-none brutal:border-2 brutal:border-brutal-ink brutal:bg-brutal-mute">
+        <p className="font-mono text-xs text-ink/40 dark:text-paper/40 brutal:text-brutal-ink brutal:font-bold">
           Fetching {path}…
         </p>
       </div>
@@ -75,7 +75,7 @@ export default function CodeFromRepo({
   return (
     <div className="my-8">
       {caption && (
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 dark:text-paper/50 mb-2">
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 dark:text-paper/50 mb-2 brutal:text-brutal-ink brutal:font-bold">
           {caption}
         </p>
       )}
@@ -84,7 +84,7 @@ export default function CodeFromRepo({
         href={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 hover:text-ember dark:text-paper/50 dark:hover:text-ember transition-colors -mt-4"
+        className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/50 hover:text-ember dark:text-paper/50 dark:hover:text-ember transition-colors -mt-4 brutal:text-brutal-ink brutal:font-bold brutal:mt-3 brutal:bg-brutal-paper brutal:border-2 brutal:border-brutal-ink brutal:px-2 brutal:py-1 brutal:shadow-brutal-sm brutal:hover:bg-brutal-yellow brutal:hover:text-black brutal:hover:translate-x-[1px] brutal:hover:translate-y-[1px] brutal:hover:shadow-none"
       >
         <ExternalLink size={11} strokeWidth={1.8} />
         View on GitHub

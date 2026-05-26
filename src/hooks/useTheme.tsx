@@ -5,6 +5,7 @@ type Theme = 'light' | 'dark';
 interface ThemeContextValue {
   theme: Theme;
   toggle: () => void;
+  setTheme: (t: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
@@ -15,21 +16,31 @@ function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === 'light' || stored === 'dark') return stored;
+  // Legacy storage values (e.g. the deprecated 'brutal' evaluation mode)
+  // fall through to the system preference.
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle('dark', theme === 'dark');
+    // Brutalist is always on — it's the site's design language now,
+    // not an opt-in evaluation theme. The `brutal:` Tailwind variant
+    // (selector: html.brutal &) therefore matches in both modes.
+    root.classList.add('brutal');
     window.localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
-  const toggle = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'));
+  const toggle = () => setThemeState((t) => (t === 'light' ? 'dark' : 'light'));
 
-  return <ThemeContext.Provider value={{ theme, toggle }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, toggle, setTheme: setThemeState }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
 export function useTheme() {

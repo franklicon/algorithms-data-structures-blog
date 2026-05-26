@@ -13,19 +13,35 @@ export default {
         mono: ['"JetBrains Mono"', '"Fira Code"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        // .NET-flavored purple system. Token semantics: paper = light surface
-        // (background in light / text in dark), ink = dark surface (text in
-        // light / background in dark). Both modes are live via the navbar toggle.
-        paper: '#FAFAFA',          // light surface — near-white
-        ink: '#0E0B16',            // dark surface — near-black with violet undertone
-        graphite: '#1B1530',       // elevated dark surface — cards, code-block bg
-        ember: '#7C3AED',          // primary accent — violet-600, used for links + ruling
-        aurora: '#A78BFA',         // lighter accent — violet-400, hero highlights + hover
-        gold: '#F59E0B',           // warm complement — sort/search active cells
-        signal: '#F59E0B',         // alias — keeps existing references working
-        magenta: '#7C3AED',        // alias — keeps existing references working
-        sage: '#7C3AED',           // alias to ember (sage was unused on these surfaces)
-        rule: '#E7E2DC',           // light-mode hairlines
+        // Brutalist palette. Top-level tokens are constants; `brutal.*`
+        // tokens that need to flip with mode (paper/ink/mute/rule + shadow)
+        // are CSS variables defined in index.css.
+        paper: '#FFFFFF',          // pure white — light surface
+        ink: '#000000',            // pure black — dark surface
+        graphite: '#262626',       // neutral dark gray — dark-mode card/border bg
+        ember: '#FFD500',          // primary accent — caution yellow (was violet)
+        signal: '#FFD500',         // alias — yellow (sort/search active cells)
+        sage: '#FFD500',           // alias — yellow (visualizer pointer arrows)
+        rule: '#D4D4D4',           // light-mode 1px hairlines (literal hex so /60 opacity modifiers compile)
+
+        // Neo-brutalist tokens — the site's design language. Surface,
+        // foreground, mute, and shadow are CSS variables that flip when
+        // <html> has class "dark"; accent colors (yellow/red/blue) stay
+        // constant in both modes. See index.css for the variable values.
+        brutal: {
+          paper: 'var(--brutal-paper)',  // surface: white (light) / black (dark)
+          ink: 'var(--brutal-ink)',      // foreground + 2px borders: black (light) / white (dark)
+          mute: 'var(--brutal-mute)',    // alt row / subdued surface: cream (light) / near-black (dark)
+          yellow: '#FFD500',             // primary accent — caution yellow
+          red: '#FF4D4D',                // destructive / warning accent
+          blue: '#3B82F6',               // info / link accent
+        },
+      },
+      boxShadow: {
+        // Brutalist hard offset shadows. Color tracks --brutal-shadow,
+        // which is #000 in light mode and #FFF in dark mode.
+        brutal: '4px 4px 0 0 var(--brutal-shadow)',
+        'brutal-sm': '2px 2px 0 0 var(--brutal-shadow)',
       },
       letterSpacing: {
         tightest: '-0.04em',
@@ -39,5 +55,9 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('brutal', 'html.brutal &');
+    },
+  ],
 };

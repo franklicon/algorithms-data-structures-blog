@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 export default function About() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 py-16 lg:py-24">
-      <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-ember mb-6">
+      <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-ember mb-6 brutal:text-black brutal:bg-brutal-yellow brutal:inline-block brutal:px-2 brutal:py-1 brutal:border-2 brutal:border-brutal-ink brutal:font-bold">
         Colophon
       </p>
-      <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tightest text-ink dark:text-paper font-medium mb-10 break-words">
+      <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tightest text-ink dark:text-paper font-medium mb-10 break-words brutal:font-sans brutal:font-black brutal:uppercase brutal:tracking-tight brutal:text-brutal-ink">
         About this notebook.
       </h1>
 
@@ -45,7 +45,10 @@ export default function About() {
         </p>
 
         <p className="mt-10">
-          <Link to="/" className="text-ember underline">
+          <Link
+            to="/"
+            className="text-ember underline brutal:no-underline brutal:inline-flex brutal:items-center brutal:gap-2 brutal:font-mono brutal:text-xs brutal:uppercase brutal:tracking-[0.18em] brutal:font-bold brutal:text-brutal-ink brutal:border-2 brutal:border-brutal-ink brutal:px-3 brutal:py-1.5 brutal:bg-brutal-paper brutal:shadow-brutal-sm brutal:hover:bg-brutal-yellow brutal:hover:text-black brutal:hover:translate-x-[1px] brutal:hover:translate-y-[1px] brutal:hover:shadow-none"
+          >
             ← Back to the index
           </Link>
         </p>

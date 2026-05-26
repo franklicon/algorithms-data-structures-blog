@@ -19,25 +19,25 @@ export default function CodeBlock({
   const style = theme === 'dark' ? oneDark : oneLight;
 
   return (
-    <figure className="my-8 group relative">
+    <figure className="my-8 group relative brutal:shadow-brutal brutal:bg-brutal-paper">
       {/* Violet left accent bar — runs the full height, ties code blocks to the .NET palette */}
       <div
         aria-hidden
-        className="absolute left-0 top-0 bottom-0 w-[3px] bg-ember rounded-l-md"
+        className="absolute left-0 top-0 bottom-0 w-[3px] bg-ember rounded-l-md brutal:hidden"
       />
       {filename && (
-        <figcaption className="flex items-center justify-between pl-5 pr-4 py-2.5 border border-b-0 border-rule dark:border-graphite/60 bg-rule/30 dark:bg-graphite/40 rounded-t-md">
-          <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70 dark:text-paper/70">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-ember" />
+        <figcaption className="flex items-center justify-between pl-5 pr-4 py-2.5 border border-b-0 border-rule dark:border-graphite/60 bg-rule/30 dark:bg-graphite/40 rounded-t-md brutal:rounded-none brutal:border-2 brutal:border-b-0 brutal:border-brutal-ink brutal:bg-brutal-yellow">
+          <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70 dark:text-paper/70 brutal:text-black brutal:font-black">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-ember brutal:rounded-none brutal:w-2 brutal:h-2 brutal:bg-black" />
             {filename}
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ember/80 dark:text-aurora/80">
+          <span className="font-mono text-[10px] uppercase tracking-[0.18em] brutal:text-brutal-ink brutal:font-bold brutal:border-2 brutal:border-brutal-ink brutal:px-1.5 brutal:bg-brutal-paper">
             {language}
           </span>
         </figcaption>
       )}
       <div
-        className={`overflow-hidden border border-rule dark:border-graphite/60 ${
+        className={`overflow-hidden border border-rule dark:border-graphite/60 brutal:border-2 brutal:border-brutal-ink brutal:rounded-none ${
           filename ? 'rounded-b-md' : 'rounded-md'
         }`}
       >

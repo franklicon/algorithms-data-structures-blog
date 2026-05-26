@@ -58,7 +58,7 @@ export default function StackVisualizer() {
 
   return (
     <div className="my-10 not-prose">
-      <div className="border border-rule dark:border-graphite/60 rounded-lg p-6 lg:p-8 bg-paper dark:bg-graphite/20">
+      <div className="border border-rule dark:border-graphite/60 rounded-lg p-6 lg:p-8 bg-paper dark:bg-graphite/20 brutal:rounded-none brutal:border-2 brutal:border-brutal-ink brutal:bg-brutal-paper brutal:shadow-brutal">
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-3 mb-8">
           <input
@@ -66,7 +66,7 @@ export default function StackVisualizer() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="value"
-            className="w-24 px-3 py-2 font-mono text-sm border border-rule dark:border-graphite/60 bg-transparent text-ink dark:text-paper rounded focus:outline-none focus:border-ember"
+            className="w-24 px-3 py-2 font-mono text-sm border border-rule dark:border-graphite/60 bg-transparent text-ink dark:text-paper rounded focus:outline-none focus:border-ember brutal:rounded-none brutal:border-2 brutal:border-brutal-ink brutal:bg-brutal-paper brutal:text-brutal-ink brutal:font-bold brutal:shadow-brutal-sm"
           />
           <button onClick={push} className="btn-viz">
             <ArrowDownToLine size={13} strokeWidth={2} /> Push
@@ -94,10 +94,10 @@ export default function StackVisualizer() {
               className="flex items-center gap-2 mb-1"
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ember">
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ember brutal:text-black brutal:bg-brutal-yellow brutal:px-2 brutal:py-0.5 brutal:border-2 brutal:border-brutal-ink brutal:font-bold">
                 top
               </span>
-              <ArrowRight size={14} strokeWidth={1.8} className="text-ember rotate-90" />
+              <ArrowRight size={14} strokeWidth={1.8} className="text-ember rotate-90 brutal:text-brutal-ink" />
             </motion.div>
 
             <AnimatePresence mode="popLayout">
@@ -111,17 +111,17 @@ export default function StackVisualizer() {
                   transition={{ type: 'spring', stiffness: 320, damping: 26 }}
                   className="flex items-center gap-2"
                 >
-                  <div className="flex border border-ink dark:border-paper rounded overflow-hidden bg-paper dark:bg-ink min-w-[120px]">
-                    <div className="px-5 py-2.5 font-display text-lg text-ink dark:text-paper flex-1 text-center border-r border-ink/30 dark:border-paper/30">
+                  <div className="flex border border-ink dark:border-paper rounded overflow-hidden bg-paper dark:bg-ink min-w-[120px] brutal:rounded-none brutal:border-2 brutal:border-brutal-ink brutal:bg-brutal-paper brutal:shadow-brutal-sm">
+                    <div className="px-5 py-2.5 font-display text-lg text-ink dark:text-paper flex-1 text-center border-r border-ink/30 dark:border-paper/30 brutal:font-sans brutal:font-bold brutal:text-brutal-ink brutal:border-r-2 brutal:border-brutal-ink">
                       {node.value}
                     </div>
-                    <div className="px-3 py-2.5 flex items-center justify-center bg-rule/40 dark:bg-graphite/40 min-w-[40px]">
+                    <div className="px-3 py-2.5 flex items-center justify-center bg-rule/40 dark:bg-graphite/40 min-w-[40px] brutal:bg-brutal-mute">
                       {idx === nodes.length - 1 ? (
-                        <span className="font-mono text-[10px] text-ink/60 dark:text-paper/60">
+                        <span className="font-mono text-[10px] text-ink/60 dark:text-paper/60 brutal:text-brutal-ink brutal:font-bold">
                           null
                         </span>
                       ) : (
-                        <ArrowRight size={14} strokeWidth={1.8} className="text-sage rotate-90" />
+                        <ArrowRight size={14} strokeWidth={1.8} className="text-sage rotate-90 brutal:text-brutal-ink" />
                       )}
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export default function StackVisualizer() {
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="font-mono text-sm text-ink/50 dark:text-paper/50 italic mt-4"
+                className="font-mono text-sm text-ink/50 dark:text-paper/50 italic mt-4 brutal:text-brutal-ink brutal:font-bold brutal:not-italic"
               >
                 empty stack — top → null
               </motion.span>
@@ -142,7 +142,7 @@ export default function StackVisualizer() {
             {nodes.length > 0 && (
               <motion.span
                 layout
-                className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/40 dark:text-paper/40 mt-2"
+                className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/40 dark:text-paper/40 mt-2 brutal:text-brutal-ink brutal:font-bold"
               >
                 bottom
               </motion.span>
@@ -151,46 +151,11 @@ export default function StackVisualizer() {
         </div>
 
         {/* Result + status line */}
-        <div className="mt-6 pt-4 border-t border-rule dark:border-graphite/60 flex justify-between items-center font-mono text-[11px] text-ink/50 dark:text-paper/50">
-          <span className="text-ink/80 dark:text-paper/80 min-h-[1em]">{result}</span>
+        <div className="mt-6 pt-4 border-t border-rule dark:border-graphite/60 flex justify-between items-center font-mono text-[11px] text-ink/50 dark:text-paper/50 brutal:border-t-2 brutal:border-brutal-ink brutal:text-brutal-ink brutal:font-bold">
+          <span className="text-ink/80 dark:text-paper/80 min-h-[1em] brutal:text-brutal-ink">{result}</span>
           <span>Count = {nodes.length}</span>
         </div>
       </div>
-
-      <style>{`
-        .btn-viz {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 6px 12px;
-          font-family: 'JetBrains Mono', ui-monospace, monospace;
-          font-size: 12px;
-          letter-spacing: 0.02em;
-          border: 1px solid rgb(14 11 22 / 0.18);
-          border-radius: 4px;
-          color: rgb(14 11 22 / 0.72);
-          background: transparent;
-          transition: all 150ms;
-        }
-        html.dark .btn-viz {
-          border-color: rgb(250 250 250 / 0.18);
-          color: rgb(250 250 250 / 0.78);
-        }
-        .btn-viz:hover:not(:disabled) {
-          color: #7C3AED;
-          border-color: #7C3AED;
-          background: rgba(124, 58, 237, 0.08);
-        }
-        html.dark .btn-viz:hover:not(:disabled) {
-          color: #A78BFA;
-          border-color: #A78BFA;
-          background: rgba(167, 139, 250, 0.10);
-        }
-        .btn-viz:disabled {
-          opacity: 0.35;
-          cursor: not-allowed;
-        }
-      `}</style>
     </div>
   );
 }

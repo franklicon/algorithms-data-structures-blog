@@ -4,11 +4,22 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
+    /* Brutalist tokens — light mode. Backed by these variables so
+       brutal-paper / brutal-ink / brutal-mute / shadow-brutal all flip
+       automatically when <html> has class "dark". */
+    --brutal-paper: #FFFFFF;
+    --brutal-ink: #000000;
+    --brutal-mute: #F4F0E8;
+    --brutal-shadow: #000000;
   }
 
   html.dark {
     color-scheme: dark;
+    --brutal-paper: #000000;
+    --brutal-ink: #FFFFFF;
+    --brutal-mute: #141414;
+    --brutal-shadow: #FFFFFF;
   }
 
   html {
@@ -18,45 +29,26 @@
   }
 
   body {
-    @apply bg-paper text-ink font-sans;
+    @apply font-sans;
     font-feature-settings: 'ss01', 'ss02', 'cv01';
   }
 
-  html.dark body {
-    @apply bg-ink text-paper;
+  /* Body bg/text track brutalist tokens — auto-flips with html.dark. */
+  html.brutal body {
+    @apply bg-brutal-paper text-brutal-ink;
   }
 
-  /* Faint film-grain texture over the surface */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
-  }
-
-  html.dark body::before {
-    opacity: 0.05;
-  }
-
-  ::selection {
-    @apply bg-ember/30 text-paper;
-  }
-
-  html.dark ::selection {
-    @apply bg-ember/30 text-paper;
+  /* Selection sits on the constant-yellow chip; text always reads black. */
+  html.brutal ::selection {
+    @apply bg-brutal-yellow text-black;
   }
 }
 
 @layer components {
+  /* Reading column geometry. Color/weight come from the brutalist
+     overrides below; spacing + max-width + base font-size live here. */
   .prose-editorial {
-    @apply max-w-[68ch] text-[17px] leading-[1.75] text-ink/85;
-  }
-
-  html.dark .prose-editorial {
-    @apply text-paper/85;
+    @apply max-w-[68ch] text-[17px] leading-[1.75];
   }
 
   .prose-editorial p {
@@ -64,46 +56,75 @@
   }
 
   .prose-editorial h2 {
-    @apply font-display text-3xl font-medium tracking-tightest mt-14 mb-5 text-ink;
-  }
-
-  html.dark .prose-editorial h2 {
-    @apply text-paper;
+    @apply text-3xl mt-14 mb-5;
   }
 
   .prose-editorial h3 {
-    @apply font-display text-xl font-medium mt-10 mb-3 text-ink;
+    @apply text-xl mt-10 mb-3;
   }
 
-  html.dark .prose-editorial h3 {
-    @apply text-paper;
+  /* Brutalist prose treatment — bold sans uppercase headings,
+     yellow inline-code highlights, button-wash links, thick rule lines. */
+  html.brutal .prose-editorial {
+    @apply text-brutal-ink;
   }
 
-  .prose-editorial a {
-    @apply text-ember underline decoration-ember/40 underline-offset-4 hover:decoration-ember transition-colors;
+  html.brutal .prose-editorial h2 {
+    @apply font-sans uppercase tracking-normal font-black text-brutal-ink pb-2 border-b-2 border-brutal-ink;
   }
 
-  .prose-editorial code:not(pre code) {
-    @apply font-mono text-[0.9em] px-1.5 py-0.5 rounded bg-rule/60 text-graphite;
+  html.brutal .prose-editorial h3 {
+    @apply font-sans uppercase tracking-normal font-bold text-brutal-ink;
   }
 
-  html.dark .prose-editorial code:not(pre code) {
-    @apply bg-graphite text-signal border border-graphite;
+  html.brutal .prose-editorial a {
+    @apply text-brutal-ink underline decoration-2 decoration-brutal-ink underline-offset-4 hover:bg-brutal-yellow hover:no-underline transition-colors;
   }
 
-  .prose-editorial strong {
-    @apply font-medium text-ink;
+  /* Inline code lives on a constant-yellow chip — text stays black in both modes. */
+  html.brutal .prose-editorial code:not(pre code) {
+    @apply font-mono text-[0.9em] px-1.5 py-0 rounded-none bg-brutal-yellow text-black border-0;
   }
 
-  html.dark .prose-editorial strong {
-    @apply text-paper;
+  html.brutal .prose-editorial strong {
+    @apply font-bold text-brutal-ink;
   }
 
-  .hairline {
-    @apply border-t border-rule;
+  html.brutal .prose-editorial em {
+    @apply text-brutal-ink;
   }
 
-  html.dark .hairline {
-    @apply border-graphite;
+  html.brutal .hairline {
+    @apply border-t-2 border-brutal-ink;
+  }
+
+  /* Visualizer buttons — single source of truth. All 6 visualizers
+     reference .btn-viz. Border + shadow track --brutal-ink /
+     --brutal-shadow and flip with mode; yellow bg + black text stay
+     constant in both modes. */
+  .btn-viz {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: 2px solid var(--brutal-ink);
+    border-radius: 0;
+    background: #FFD500;
+    color: #000;
+    box-shadow: 3px 3px 0 0 var(--brutal-shadow);
+    transition: transform 150ms, box-shadow 150ms;
+  }
+  .btn-viz:hover:not(:disabled) {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+  .btn-viz:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 }
