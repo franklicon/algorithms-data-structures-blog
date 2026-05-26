@@ -16,9 +16,9 @@ function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
   const stored = window.localStorage.getItem(STORAGE_KEY);
   if (stored === 'light' || stored === 'dark') return stored;
-  // Legacy storage values (e.g. the deprecated 'brutal' evaluation mode)
-  // fall through to the system preference.
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  // First-visit default: light. Returning visitors keep whatever they
+  // last toggled to (read from localStorage above).
+  return 'light';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
