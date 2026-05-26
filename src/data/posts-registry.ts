@@ -3,6 +3,7 @@ import LinkedListPost from '../posts/data-structures/linked-list';
 import DoublyLinkedListPost from '../posts/data-structures/doubly-linked-list';
 import StackPost from '../posts/data-structures/stack';
 import QueuePost from '../posts/data-structures/queue';
+import BinarySearchTreePost from '../posts/data-structures/binary-search-tree';
 import SortingPost from '../posts/algorithms/sorting';
 import SearchingPost from '../posts/algorithms/searching';
 
@@ -93,6 +94,22 @@ export const posts: PostMeta[] = [
       space: 'O(n)',
     },
     component: QueuePost,
+  },
+  {
+    slug: 'binary-search-tree',
+    title: 'Binary Search Trees',
+    subtitle: 'Ordered keys, recursive descent — O(log n) average-case lookup at the cost of shape sensitivity.',
+    category: 'data-structures',
+    tags: ['tree', 'binary-search-tree', 'recursion', 'fundamentals'],
+    date: '2026-05-26',
+    readingTime: 11,
+    complexity: {
+      search: 'O(log n) avg / O(n) worst',
+      insertion: 'O(log n) avg',
+      deletion: 'O(log n) avg',
+      space: 'O(n)',
+    },
+    component: BinarySearchTreePost,
   },
   {
     slug: 'sorting',
