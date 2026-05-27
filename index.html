@@ -15,6 +15,14 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&family=Public+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Cloudflare Web Analytics. "spa": true makes the beacon track pushState
+         navigations; ScrollToTop additionally fires a replaceState on every
+         hash route change so HashRouter navigations register as pageviews. -->
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "46fe297a35d54dafa13f04fc83898211", "spa": true}'
+    ></script>
   </head>
   <body>
     <div id="root"></div>
